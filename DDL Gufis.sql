@@ -3,7 +3,7 @@ CREATE DATABASE Gufi;
 --Define o banco de dados que será utilizado
 USE Gufi;
 
--- Criação de tabeas
+-- Criação de tabelas
 CREATE TABLE TipoUsuario(
 idTipoUsuario INT PRIMARY KEY IDENTITY,
 TituloTipoUsuario VARCHAR (500) NOT NULL UNIQUE
