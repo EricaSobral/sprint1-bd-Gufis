@@ -32,10 +32,23 @@ idTipoUsuario INT FOREIGN KEY REFERENCES TipoUsuario (idTipoUsuario)
 );
 
 CREATE TABLE Eventos(
-NomeEvento INT PRIMARY KEY IDENTITY,
+idEvento INT PRIMARY KEY IDENTITY,
+NomeEvento VARCHAR(500),
 AcessoLivre BIT NOT NULL,
-DataEvento DATETIME2(100) NOT NULL UNIQUE,
+DataEvento DATETIME2 NOT NULL UNIQUE,
 Descricao VARCHAR (100) NOT NULL,
-idTipoUsuario INT FOREIGN KEY REFERENCES TipoUsuario (idTipoUsuario)
-idInstiticao INT FOREIGN KEY REFERENCES Instituicao (idInstituicao)
+idTipoEvento INT FOREIGN KEY REFERENCES TipoEvento (idTipoEvento),
+idInstituicao INT FOREIGN KEY REFERENCES Instituicao (idInstituicao)
 );
+
+CREATE TABLE Presenca(
+idPresnca INT PRIMARY KEY IDENTITY,
+Situacao VARCHAR (255),
+idUsuario INT FOREIGN KEY REFERENCES Usuario (idUsuario),
+idEvento INT FOREIGN KEY REFERENCES Eventos (idEvento)
+);
+
+DROP TABLE Eventos
+;
+
+select * from Eventos;
